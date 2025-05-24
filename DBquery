@@ -1,0 +1,16 @@
+CREATE TABLE `students` (
+  `id` varchar(12) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `major` varchar(255) NOT NULL,
+  `enroll_date` datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  `gpa` double NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`major`) REFERENCES majors(`major`) ON UPDATE CASCADE ON DELETE RESTRICT
+);
+CREATE TABLE `majors` (
+  `id` int AUTO_INCREMENT NOT NULL,
+  `major` varchar(255)  NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY (`major`)
+);
